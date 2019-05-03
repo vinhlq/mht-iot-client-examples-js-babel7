@@ -1,0 +1,66 @@
+{  
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Babel debug",
+            "type": "node",
+            "request": "launch",
+            "program": "${file}",
+            "stopOnEntry": false,
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "build",
+            // "runtimeExecutable": null,
+            // "runtimeExecutable": "node",
+            "runtimeVersion": "8.10.0",
+            "runtimeArgs": [
+                "--nolazy"
+            ],
+            "envFile": "${workspaceFolder}/.env",
+            "env": {
+                "NODE_ENV": "development"
+            },
+            "console": "integratedTerminal",
+            "sourceMaps": true,
+            // "outDir": "${workspaceFolder}/dist"
+            "outFiles": [
+                "${workspaceFolder}/dist/root/**/*.js"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch via NPM native",
+            "runtimeExecutable": "npm",
+            // "runtimeExecutable": "${env:NVM_BIN}/npm"
+            "runtimeArgs": [
+                "run-script",
+                "reg"
+            ],
+            "port": 9229
+        },
+        {
+            "name": "Launch",
+            "type": "node",
+            "request": "launch",
+            "program": "${file}",
+            "stopOnEntry": false,
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "runtimeArgs": [
+              "--nolazy"
+            ],
+            "sourceMaps": true,
+            "outFiles": [
+              "${workspaceFolder}/../dist/**/*.js"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Node debug",
+            "console": "integratedTerminal",
+            "program": "${file}"
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+# package directories
+node_modules
+jspm_packages
+
+*.key
+*.crt
+*.cert
+*.pem
+*.old
+/**/dist
+/**/node_modules
+/**/config/*.json
+
+# Serverless directories
+.serverless
+.webpack
+
+# debug
+/**/dist
+
+# testing
+/coverage
+
+npm-debug.log*
+.DS_Store
+
+.env

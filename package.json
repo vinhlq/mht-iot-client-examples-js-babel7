@@ -1,0 +1,68 @@
+{
+  "name": "aws_mht_iot_examples",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vinhlq/aws_mht_iot_examples"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
+    "@babel/plugin-proposal-function-sent": "^7.2.0",
+    "@babel/plugin-proposal-json-strings": "^7.0.0",
+    "@babel/plugin-proposal-numeric-separator": "^7.2.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.4",
+    "@babel/plugin-proposal-throw-expressions": "^7.2.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-import-meta": "^7.0.0",
+    "@babel/plugin-transform-object-assign": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.3.4",
+    "@babel/plugin-transform-typescript": "^7.3.2",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/runtime": "7.3.4",
+    "amazon-cognito-identity-js": "^1.20.0",
+    "aws-iot-device-sdk": "^2.1.0",
+    "node-forge": "^0.8.1",
+    "aws-sdk": "^2.117.0",
+    "aws-amplify": "^1.1.26",
+    "babel-plugin-module-resolver": "3.2.0",
+    "crypto-js": "^3.1.9-1",
+    "loglevel": "^1.6.0",
+    "moment": "^2.19.1",
+    "node-fetch": "^2.3.0",
+    "serverless-webpack": "^3.1.2",
+    "uuid": "^3.1.0",
+    "webpack": "^4.5.0",
+    "webpack-node-externals": "^1.6.0"
+  },
+  "scripts": {
+    "babel": "babel",
+    "webpack": "webpack",
+    "//": "babel . --ignore=node_modules,dist --stage 0 --presets=es2015,stage-3 --out-dir=dist --source-maps --plugins=transform-runtime",
+    "build-root": "babel . --out-dir dist/root --source-maps --ignore **/node_module/*,dist/*",
+    "build-lib": "babel ../src/lib --out-dir dist/src/lib --source-maps --ignore ../src/lib/node_modules/*,dist/*",
+    "build-config": "babel ../config --out-dir dist/config --source-maps --copy-files --ignore ../config/node_modules/*,dist/*",
+    "build-rsync": "rsync -avz --exclude \"*.js\" --exclude \"__tests__\" --exclude \"__snapshots__\" --exclude \"__mocks__\" --exclude \"dist\" --exclude \"node_modules\" ./ dist/root",
+    "build": "npm run build-root && npm run build-lib && npm run build-config && npm run build-rsync",
+    "build-webpack": "webpack -d --colors"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js}",
+      "!src/lib/sigV4Client.js",
+      "!src/registerServiceWorker.js",
+      "!src/config/**/*.js"
+    ]
+  },
+  "devDependencies": {
+    "@babel/node": "^7.0.0",
+    "eslint": "^4.7.2",
+    "eslint-plugin-import": "^2.7.0",
+    "mockdate": "^2.0.2",
+    "webpack-cli": "^3.2.3"
+  }
+}
